@@ -12,9 +12,9 @@
 </template>
 
 <script>
-  import Layout from '../components/blog/Layout.vue';
-  import BlogContent from '../components/blog/BlogContent.vue';
-  import BlogAside from '../components/blog/BlogAside.vue';
+  import Layout from '@/components/blog/Layout.vue';
+  import BlogContent from '@/components/blog/BlogContent.vue';
+  import BlogAside from '@/components/blog/BlogAside.vue';
 
   export default {
     name: 'Blog',

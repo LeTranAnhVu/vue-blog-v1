@@ -1,35 +1,34 @@
 <template>
-  <article class="blog-content__title">
-    <h1 class="blog-content__title__content">
-      {{blog.title}}
-    </h1>
-    <blog-meta
-      class="mt-1"
-      :author="blog.authorName"
-      :created_at="blog.created_at"
-    ></blog-meta>
-  </article>
+  <section v-if="blog && Object.keys(blog).length > 0">
+    <!--title-->
+    <article class="blog-content__title">
+      <h1 class="blog-content__title__content">
+        {{blog.title}}
+      </h1>
+      <blog-meta
+        class="mt-1"
+        :author="blog.authorName"
+        :created_at="blog.created_at"
+      ></blog-meta>
+    </article>
+    <!--body-->
+    <article class="blog-content__body" v-html="blog.content"></article>
+  </section>
 </template>
 
 <script>
-import BlogMeta from './BlogMeta.vue';
+  import BlogMeta from './BlogMeta.vue';
 
-export default {
-  name: 'BlogContent',
-  components: {
-    BlogMeta,
-  },
-  data() {
-    return {
-      blog: {
-        title: 'Productivity',
-        content: '',
-        authorName: 'admin',
-        created_at: '2 days ago',
-      },
-    };
-  },
-};
+  export default {
+    name: 'BlogContent',
+    components: {
+      BlogMeta,
+    },
+    props: ['blog'],
+    data() {
+      return {};
+    },
+  };
 </script>
 
 <style lang="scss" scoped>

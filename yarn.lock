@@ -4718,6 +4718,18 @@ javascript-stringify@^1.6.0:
   resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-1.6.0.tgz#142d111f3a6e3dae8f4a9afd77d45855b5a9cce3"
   integrity sha1-FC0RHzpuPa6PSpr9d9RYVbWpzOM=
 
+jodit-vue@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/jodit-vue/-/jodit-vue-1.2.3.tgz#27a4b4f390108c1d0eda7ca88e4f81b7d0eb735a"
+  integrity sha512-2oQUG/otO2tgyBzyu+yWlM1pJZLlyENgp55lpsWChjQFKh3pnldjiA+4jn7xI1YUlyQbbY7HXLI+sUr4yNwPpg==
+  dependencies:
+    jodit "^3.2.21"
+
+jodit@^3.2.21:
+  version "3.2.44"
+  resolved "https://registry.yarnpkg.com/jodit/-/jodit-3.2.44.tgz#c717bbb6c51471d40cf61faafaf6834b5b655b8c"
+  integrity sha512-2rwOpQ18zqjjh+YRtuWcexGKYeR4hQo0ekxZsYNb8X0CQr2k6fkvjx48nITu4hzodFptfRXDPaJDIus2QeVE0Q==
+
 joi@^14.3.0:
   version "14.3.1"
   resolved "https://registry.yarnpkg.com/joi/-/joi-14.3.1.tgz#164a262ec0b855466e0c35eea2a885ae8b6c703c"

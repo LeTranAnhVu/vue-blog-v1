@@ -14,6 +14,9 @@
             <router-link class="nav-link" to="/blog">Blogs</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/create-blog">+New blog</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/about">About</router-link>
           </li>
         </ul>
