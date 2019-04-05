@@ -1,7 +1,6 @@
 import Vue from 'vue';
-import '../node_modules/jquery/dist/jquery.slim.min';
-import '../node_modules/popper.js/dist/popper.min';
-import '../node_modules/bootstrap/dist/js/bootstrap.min';
+
+import './assets/js/vendor';
 import './assets/style/custom.scss';
 import App from './App.vue';
 

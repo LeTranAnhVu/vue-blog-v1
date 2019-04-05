@@ -14,27 +14,31 @@ export default {
   name: 'BlogMeta',
   props: ['author', 'created_at'],
   data() {
-    return {
-    };
+    return {};
   },
 };
 </script>
 <style scoped>
-  p{
+  p {
     margin: 0;
   }
-  span{
+
+  span {
     margin-right: 5px;
   }
+
   .by,
   .date {
     color: #555;
   }
+
   .date {
     font-style: italic;
     text-decoration: underline;
   }
-  .author{
+
+  .author {
+    display: inline-flex;
     color: #333;
     font-weight: 500;
     font-size: 1.2rem;

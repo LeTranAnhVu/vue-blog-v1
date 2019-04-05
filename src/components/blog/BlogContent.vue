@@ -1,15 +1,13 @@
 <template>
-  <article>
-    <div class="blog-content__title">
-      <h1 class="blog-content__title__content">
-        {{blog.title}}
-      </h1>
-      <blog-meta
-        class="mt-1"
-        :author="blog.authorName"
-        :created_at="blog.created_at"
-      ></blog-meta>
-    </div>
+  <article class="blog-content__title">
+    <h1 class="blog-content__title__content">
+      {{blog.title}}
+    </h1>
+    <blog-meta
+      class="mt-1"
+      :author="blog.authorName"
+      :created_at="blog.created_at"
+    ></blog-meta>
   </article>
 </template>
 
@@ -24,7 +22,7 @@ export default {
   data() {
     return {
       blog: {
-        title: '00__first__blog',
+        title: 'Productivity',
         content: '',
         authorName: 'admin',
         created_at: '2 days ago',
@@ -36,15 +34,18 @@ export default {
 
 <style lang="scss" scoped>
   @import "../../assets/style/helpers";
+
   .blog-content__title {
     padding: 50px;
-    &__content{
+
+    &__content {
       margin-bottom: 0;
       text-align: left;
       font-size: 2rem;
       color: #555;
     }
-    @include breakpoint-up($md){
+
+    @include breakpoint-up($md) {
       &__content {
         font-size: 4rem;
       }
