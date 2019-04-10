@@ -41,7 +41,7 @@ export default {
     display: inline-flex;
     color: #333;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.2em;
   }
 
 

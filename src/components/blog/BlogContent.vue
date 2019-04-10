@@ -2,9 +2,7 @@
   <section v-if="blog && Object.keys(blog).length > 0">
     <!--title-->
     <article class="blog-content__title">
-      <h1 class="blog-content__title__content">
-        {{blog.title}}
-      </h1>
+      <h1 class="blog-content__title__content" v-html="blog.title"></h1>
       <blog-meta
         class="mt-1"
         :author="blog.authorName"
@@ -40,13 +38,13 @@
     &__content {
       margin-bottom: 0;
       text-align: left;
-      font-size: 2rem;
+      font-size: 2em;
       color: #555;
     }
 
     @include breakpoint-up($md) {
       &__content {
-        font-size: 4rem;
+        font-size: 4em;
       }
     }
   }
