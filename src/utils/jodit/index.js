@@ -1,28 +1,29 @@
-function baseHeading(type = 'p') {
+function extraStyle(name) {
   return {
-    name: type,
-    iconURL: `https://dummyimage.com/100x100/fff/000.png&text=${type}`,
+    name: name,
+    iconURL: `https://dummyimage.com/100x100/fff/f00.png&text=${name}`,
     exec(editor) {
-      const parser = new DOMParser();
-      const preHtml = editor.selection.getHTML();
-      // myString = myString.replace(/(\r\n|\n|\r)/gm, "<br />");
-      const el = parser.parseFromString(preHtml, 'text/html');
-      const choosedText = el.body.innerText;
-      editor.selection.insertHTML(`<${type}>${choosedText}</${type}>`);
+      const e = editor.selection.area;
+      console.log('he:', e);
+      const quoteEls = e.getElementsByTagName('blockquote');
+      console.log('hee:', quoteEls);
+      if (quoteEls) {
+        const l = quoteEls.length;
+        for (let i = 0; i < l; i++) {
+          if (!quoteEls[i].classList.contains('blog-quote')) {
+            quoteEls[i].classList.add('blog-quote');
+            quoteEls[i].innerHTML = `>> ${quoteEls[i].innerText} <<`;
+          }
+        }
+      }
     },
   };
 }
 
 
-const extraButtons = {
-  p: baseHeading(),
-  h1: baseHeading('h1'),
-  h2: baseHeading('h2'),
-  h3: baseHeading('h3'),
-  h4: baseHeading('h4'),
-  h5: baseHeading('h5'),
-  h6: baseHeading('h6'),
-};
+const extraButtons = [
+  extraStyle('EX'),
+];
 const dummy = null;
 
 export {

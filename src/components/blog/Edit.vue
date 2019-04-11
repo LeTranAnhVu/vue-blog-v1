@@ -1,7 +1,7 @@
 <template>
   <section>
     <!--title-->
-    <article class="mb-5">
+    <section>
       <div class="custom-editor__title">
         <label for="edit-title">Title:</label>
         <textarea
@@ -11,19 +11,28 @@
           @input="$emit('update:title', $event.target.value)"
         ></textarea>
       </div>
-    </article>
+    </section>
+    <!--main banner-->
+    <section>
+      <div class="custom-editor__banner">
+        <label for="edit-banner">Banner:</label>
+        <input id="edit-banner"
+               type="file"
+               @input="createImgUrl">
+      </div>
+    </section>
     <!--content-->
-    <article>
+    <section>
       <div class="custom-editor__content">
         <label for="blog-editor-01">Content:</label>
         <jodit-vue
           id="blog-editor-01"
           v-model="innerContent"
-          :extra-buttons="extraButtons"
           :config="joditConfig"
+          :extra-buttons="extraButtons"
         />
       </div>
-    </article>
+    </section>
   </section>
 </template>
 
@@ -32,23 +41,26 @@
   import JoditVue from 'jodit-vue';
 
   // utils
-  import { extraButtons } from '@/utils/jodit';
-
-  const sanitizeHtml = require('sanitize-html');
-
-  const {
- h1, h2, h3, h4, h5, h6, p,
-} = extraButtons;
+  import { extraButtons } from '../../utils/jodit';
 
   export default {
     name: 'Edit',
-    props: ['title', 'content'],
+    props: ['title', 'content', 'banner'],
+    methods: {
+      createImgUrl(e) {
+        if (e.target.files[0]) {
+          const bannerUrl = URL.createObjectURL(e.target.files[0]);
+          this.$emit('update:banner', bannerUrl);
+        }
+      },
+    },
     data() {
       return {
         innerContent: '',
-        extraButtons: [h1, h2, h3, h4, h5, h6, p],
+        extraButtons,
         joditConfig: {
           enter: 'DIV',
+          lang: 'en',
         },
       };
     },
@@ -57,18 +69,8 @@
     },
     watch: {
       innerContent(val) {
-        console.log('in watch edit:', val);
-        const filtedEl = sanitizeHtml(val, {
-          allowedTags: [
-            'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol',
-            'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'code', 'hr', 'br', 'div',
-            'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe'],
-          exclusiveFilter(frame) {
-            return frame.tag === 'div' && !frame.text.trim();
-          },
-        });
         // using .sync modifiers
-        this.$emit('update:content', filtedEl);
+        this.$emit('update:content', val);
       },
     },
     components: {
@@ -78,6 +80,18 @@
 </script>
 
 <style lang="scss" scoped>
+  section{
+    margin-bottom: 10px;
+  }
+  label {
+    font-weight: 500;
+    font-size: 1.2em;
+  }
+
+  input[type='file'] {
+    display: block;
+  }
+
   .custom-editor__title {
     textarea {
       width: 100%;
@@ -92,6 +106,10 @@
       min-height: 415px !important;
       max-height: 600px !important;
     }
+  }
+
+  .custom-editor__banner {
+
   }
 
 </style>

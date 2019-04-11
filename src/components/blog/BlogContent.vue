@@ -9,6 +9,12 @@
         :created_at="blog.created_at"
       ></blog-meta>
     </article>
+
+    <!--banner-->
+    <article class="blog-content__banner">
+      <img :src="blog.banner" alt="banner-blog">
+    </article>
+
     <!--body-->
     <article class="blog-content__body" v-html="blog.content"></article>
   </section>
@@ -32,6 +38,12 @@
 <style lang="scss" scoped>
   @import "../../assets/style/helpers";
 
+  .blog-content__banner{
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
   .blog-content__title {
     padding: 50px;
 

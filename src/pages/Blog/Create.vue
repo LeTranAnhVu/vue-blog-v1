@@ -7,6 +7,7 @@
         <edit
           :title.sync="rawTitle"
           :content.sync="rawContent"
+          :banner.sync="rawBanner"
         />
       </div>
       <!--review-->
@@ -52,8 +53,12 @@
     data() {
       return {
         resultBlog: null,
-        rawContent: 'add some content',
+        rawContent: `heading 1 <br>
+                     heading 2 <br>
+                     heading 3 <br>
+                     heading 4 <br>`,
         rawTitle: 'Title',
+        rawBanner: null,
         isShowModal: false,
       };
     },
@@ -62,10 +67,11 @@
     },
     methods: {
       review() {
-        console.log('create', this.rawContent);
+        console.log('create', this.rawBanner);
         this.resultBlog = {
           title: this.rawTitle,
           content: this.rawContent || '',
+          banner: this.rawBanner,
           authorName: 'unknown',
           created_at: 'a week ago',
         };
