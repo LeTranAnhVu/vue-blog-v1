@@ -1,5 +1,5 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
+@import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 
 //leave the global custom style here
 
@@ -24,4 +24,81 @@ html, body {
   border-radius: 15px 50px 30px 5px;
   border: 0 !important;
   word-wrap: break-word;
+}
+
+.review {
+  border-radius: 10px;
+  border: #555 1px solid;
+  min-height: 500px;
+  max-height: 700px !important;
+  overflow: scroll;
+  position: relative;
+
+  .overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: all 0.1s ease-in;
+
+    i {
+      font-size: 1.5em;
+    }
+  }
+
+  &:hover {
+    animation: flash-color 1s ease-out;
+
+    .overlay {
+      opacity: .9;
+      display: block;
+    }
+  }
+
+  .smaller {
+    font-size: 0.3rem;
+  }
+
+  @keyframes flash-color {
+    0% {
+      background: initial;
+    }
+    50% {
+      background: #dddddd;
+    }
+    100% {
+      background: initial;
+    }
+  }
+}
+
+.fullscreen {
+  position: absolute !important;
+  background: #fff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  min-height: 100%;
+  overflow: visible;
+  z-index: 999;
+
+  .overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: all 0.1s ease-in;
+
+    i {
+      font-size: 1.5em;
+    }
+  }
+
+  &:hover {
+    .overlay {
+      opacity: .9;
+      display: block;
+    }
+  }
 }

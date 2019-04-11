@@ -5,7 +5,7 @@
         <blog-aside></blog-aside>
       </template>
       <template v-slot:main>
-        <blog-content></blog-content>
+        <blog-content :blog="blog"></blog-content>
       </template>
     </layout>
   </section>
@@ -18,6 +18,7 @@
 
   export default {
     name: 'Blog',
+    props: ['blog'],
     components: {
       layout: Layout,
       BlogContent,
