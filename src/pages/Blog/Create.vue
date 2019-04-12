@@ -67,7 +67,6 @@
     },
     methods: {
       review() {
-        console.log('create', this.rawBanner);
         this.resultBlog = {
           title: this.rawTitle,
           content: this.rawContent || '',

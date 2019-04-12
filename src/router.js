@@ -16,21 +16,33 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      title: 'Home',
+    },
   },
   {
     path: '/about',
     name: 'about',
     component: About,
+    meta: {
+      title: 'About',
+    },
   },
   {
     path: '/blog/:id?',
     name: 'blog',
     component: Blog,
+    meta: {
+      title: 'Blog',
+    },
   },
   {
     path: '/create-blog',
     name: 'create-blog',
     component: BlogCreate,
+    meta: {
+      title: 'Create a blog',
+    },
   },
 ];
 

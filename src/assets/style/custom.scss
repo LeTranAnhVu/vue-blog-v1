@@ -31,7 +31,7 @@ html, body {
   border: #555 1px solid;
   min-height: 500px;
   max-height: 700px !important;
-  overflow: scroll;
+  overflow: auto;
   position: relative;
 
   .overlay {

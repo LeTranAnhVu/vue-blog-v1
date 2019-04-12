@@ -18,6 +18,7 @@
         <label for="edit-banner">Banner:</label>
         <input id="edit-banner"
                type="file"
+               accept="image/*"
                @input="createImgUrl">
       </div>
     </section>

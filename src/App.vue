@@ -1,8 +1,16 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <router-view></router-view>
+    <!--header-->
+    <Header
+      :current-route="currentRoute"
+      :last-route="lastRoute"
+    ></Header>
+
+    <!--main-->
+    <router-view class="mt-5"></router-view>
     <div class="dummy-div"></div>
+
+    <!--footer-->
     <Footer></Footer>
   </div>
 </template>
@@ -17,6 +25,29 @@
       Footer,
       Header,
     },
+    data() {
+      return {
+        currentRoute: null,
+        lastRoute: null,
+      };
+    },
+    methods: {
+      updateRoute(to, from) {
+        this.currentRoute = to;
+        this.lastRoute = from;
+      },
+      updateMetaDoc(to) {
+        document.title = (to.meta && to.meta.title) || 'new page';
+      },
+    },
+    watch: {
+      $route(to, from) {
+        this.updateRoute(to, from);
+        // add meta data
+        this.updateMetaDoc(to);
+      },
+    },
+
   };
 </script>
 
@@ -29,7 +60,12 @@
     display: flex;
     flex-direction: column;
   }
+
   .dummy-div {
     flex-grow: 1;
+  }
+
+  .main {
+    background: red;
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <section class="review">
     <div class="overlay">
-      <i class="fa fa-arrows-alt trigger-fullscreen" aria-hidden="true" @click="fullscreen"></i>
+      <i class="fa fa-expand trigger-fullscreen" aria-hidden="true" @click="fullscreen"></i>
     </div>
     <layout class="smaller">
       <template v-slot:aside>
@@ -35,6 +35,11 @@
         // fullscreen
         this.fullscreenBlog = this.$el.cloneNode(true);
         this.fullscreenBlog.classList.replace('review', 'fullscreen');
+
+        // setup compress button
+        this.fullscreenBlog.querySelector('.trigger-fullscreen')
+          .classList
+          .replace('fa-expand', 'fa-compress');
         this.fullscreenBlog.querySelector('.trigger-fullscreen')
           .addEventListener('click', () => {
             document.body.removeChild(this.fullscreenBlog);
@@ -46,8 +51,9 @@
         this.fullscreenBlog.style.flexDirection = 'column';
         dummyDiv.style.flexGrow = '1';
         this.fullscreenBlog.appendChild(dummyDiv);
-        document.body.appendChild(this.fullscreenBlog);
 
+        // dom it
+        document.body.appendChild(this.fullscreenBlog);
       },
     },
   };

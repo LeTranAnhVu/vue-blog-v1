@@ -12,7 +12,8 @@
 
     <!--banner-->
     <article class="blog-content__banner">
-      <img :src="blog.banner" alt="banner-blog">
+      <img v-if="blog && blog.banner" :src="blog.banner"  alt="banner-blog">
+      <img v-else src="https://dummyimage.com/800x400/352891/fff.jpg&text=Missing+banner"  alt="banner-blog">
     </article>
 
     <!--body-->
